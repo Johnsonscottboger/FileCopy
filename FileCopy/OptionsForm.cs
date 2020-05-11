@@ -41,12 +41,14 @@ namespace FileCopy
         {
             var options = new Options()
             {
+                Name = this.txtName.Text,
                 SourcePath = this.txtSourcePath.Text,
                 TargetPath = this.txtTargetPath.Text,
                 Filter = string.IsNullOrWhiteSpace(this.txtFilter.Text) ? null : this.txtFilter.Text,
                 IncludeSubDires = this.chbIncludSubDires.Checked
             };
             ConfigManager.Options.Add(options);
+            ConfigManager.Save();
             this.DialogResult = DialogResult.OK;
         }
     }

@@ -8,6 +8,8 @@ namespace FileCopy.Model
 {
     public class Options
     {
+        public string Name { get; set; }
+
         public string SourcePath { get; set; }
 
         public string TargetPath { get; set; }
