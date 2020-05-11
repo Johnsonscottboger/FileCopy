@@ -14,8 +14,16 @@ namespace FileCopy
 {
     public partial class OptionsForm : Form
     {
-        public OptionsForm()
+        private readonly Options _options;
+
+        public OptionsForm():this(null)
         {
+            
+        }
+
+        public OptionsForm(Options options)
+        {
+            this._options = options;
             InitializeComponent();
         }
 
@@ -39,15 +47,26 @@ namespace FileCopy
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            var options = new Options()
+            if (this._options == null)
             {
-                Name = this.txtName.Text,
-                SourcePath = this.txtSourcePath.Text,
-                TargetPath = this.txtTargetPath.Text,
-                Filter = string.IsNullOrWhiteSpace(this.txtFilter.Text) ? null : this.txtFilter.Text,
-                IncludeSubDires = this.chbIncludSubDires.Checked
-            };
-            ConfigManager.Options.Add(options);
+                var options = new Options()
+                {
+                    Name = this.txtName.Text,
+                    SourcePath = this.txtSourcePath.Text,
+                    TargetPath = this.txtTargetPath.Text,
+                    Filter = string.IsNullOrWhiteSpace(this.txtFilter.Text) ? null : this.txtFilter.Text,
+                    IncludeSubDires = this.chbIncludSubDires.Checked
+                };
+                ConfigManager.Options.Add(options);
+            }
+            else
+            {
+                this._options.Name = this.txtName.Text;
+                this._options.SourcePath = this.txtSourcePath.Text;
+                this._options.TargetPath = this.txtTargetPath.Text;
+                this._options.Filter = string.IsNullOrWhiteSpace(this.txtFilter.Text) ? null : this.txtFilter.Text;
+                this._options.IncludeSubDires = this.chbIncludSubDires.Checked;
+            }
             ConfigManager.Save();
             this.DialogResult = DialogResult.OK;
         }
