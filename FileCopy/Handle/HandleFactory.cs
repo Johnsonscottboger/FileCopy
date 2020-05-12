@@ -35,7 +35,7 @@ namespace FileCopy.Handle
                     Path = option.SourcePath,
                     IncludeSubdirectories = option.IncludeSubDires
                 };
-                watcher.Changed += (sender, e) =>
+                FileSystemEventHandler eventHandler = (sender, e) =>
                 {
                     if (!File.Exists(e.FullPath))
                         return;
@@ -43,7 +43,7 @@ namespace FileCopy.Handle
                     if (!string.IsNullOrWhiteSpace(option.Filter))
                     {
                         var fileName = fileInfo.Name;
-                        var regex = new Regex(option.Filter, RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+                        var regex = new Regex(option.Filter, RegexOptions.Compiled | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase);
                         if (!regex.IsMatch(fileName))
                             return;
                     }
@@ -52,6 +52,8 @@ namespace FileCopy.Handle
                     var handler = GetHandler();
                     handler.Copy(e.FullPath, string.IsNullOrEmpty(subDir) ? targetPath : targetPath + subDir);
                 };
+                watcher.Changed += eventHandler;
+                watcher.Created += eventHandler;
                 list.Add(watcher);
             }
             this._fileSystemWatchers = list;
