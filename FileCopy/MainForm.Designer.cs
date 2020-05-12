@@ -38,7 +38,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OptionsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SourcePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TargetPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.过滤 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,24 +59,28 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Name,
+            this.OptionsName,
             this.SourcePath,
             this.TargetPath,
             this.过滤,
             this.IncludeSubDires});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 61);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(860, 300);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1147, 375);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("DengXian", 10F);
-            this.btnAdd.Location = new System.Drawing.Point(12, 12);
+            this.btnAdd.Location = new System.Drawing.Point(16, 15);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 27);
+            this.btnAdd.Size = new System.Drawing.Size(100, 34);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "新  增";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -85,9 +89,10 @@
             // btnDel
             // 
             this.btnDel.Font = new System.Drawing.Font("DengXian", 10F);
-            this.btnDel.Location = new System.Drawing.Point(93, 12);
+            this.btnDel.Location = new System.Drawing.Point(124, 15);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(4);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(75, 27);
+            this.btnDel.Size = new System.Drawing.Size(100, 34);
             this.btnDel.TabIndex = 3;
             this.btnDel.Text = "删  除";
             this.btnDel.UseVisualStyleBackColor = true;
@@ -96,9 +101,10 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("DengXian", 10F);
-            this.btnSave.Location = new System.Drawing.Point(174, 12);
+            this.btnSave.Location = new System.Drawing.Point(232, 15);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 27);
+            this.btnSave.Size = new System.Drawing.Size(100, 34);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "保  存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -119,28 +125,29 @@
             this.打开ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(111, 52);
             // 
             // 打开ToolStripMenuItem
             // 
             this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
             this.打开ToolStripMenuItem.Text = "打开";
             this.打开ToolStripMenuItem.Click += new System.EventHandler(this.打开ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
-            // Name
+            // OptionsName
             // 
-            this.Name.DataPropertyName = "Name";
-            this.Name.HeaderText = "名    称";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
+            this.OptionsName.DataPropertyName = "Name";
+            this.OptionsName.HeaderText = "名    称";
+            this.OptionsName.MinimumWidth = 6;
+            this.OptionsName.Name = "OptionsName";
+            this.OptionsName.ReadOnly = true;
             // 
             // SourcePath
             // 
@@ -176,14 +183,16 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 361);
+            this.ClientSize = new System.Drawing.Size(1179, 451);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "MainForm";
             this.Text = "文件复制工具";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -202,7 +211,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 打开ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OptionsName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SourcePath;
         private System.Windows.Forms.DataGridViewTextBoxColumn TargetPath;
         private System.Windows.Forms.DataGridViewTextBoxColumn 过滤;

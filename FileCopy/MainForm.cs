@@ -57,6 +57,21 @@ namespace FileCopy
             MessageBox.Show(this, "保存成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = this.dataGridView1.SelectedRows[0];
+            var item = row.DataBoundItem as Options;
+            if(item != null)
+            {
+                var form = new OptionsForm(item);
+                if(form.ShowDialog(this) == DialogResult.OK)
+                {
+                    InitializeDataSource();
+                }
+            }
+        }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
@@ -91,5 +106,6 @@ namespace FileCopy
             factory.Register(ConfigManager.Options);
             factory.Start();
         }
+
     }
 }

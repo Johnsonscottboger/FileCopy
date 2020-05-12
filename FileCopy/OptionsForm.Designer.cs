@@ -77,31 +77,31 @@
             // txtSourcePath
             // 
             this.txtSourcePath.Location = new System.Drawing.Point(123, 68);
-            this.txtSourcePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSourcePath.Margin = new System.Windows.Forms.Padding(4);
             this.txtSourcePath.Name = "txtSourcePath";
             this.txtSourcePath.Size = new System.Drawing.Size(521, 25);
-            this.txtSourcePath.TabIndex = 3;
+            this.txtSourcePath.TabIndex = 1;
             // 
             // txtTargetPath
             // 
             this.txtTargetPath.Location = new System.Drawing.Point(123, 112);
-            this.txtTargetPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTargetPath.Margin = new System.Windows.Forms.Padding(4);
             this.txtTargetPath.Name = "txtTargetPath";
             this.txtTargetPath.Size = new System.Drawing.Size(521, 25);
-            this.txtTargetPath.TabIndex = 4;
+            this.txtTargetPath.TabIndex = 2;
             // 
             // txtFilter
             // 
             this.txtFilter.Location = new System.Drawing.Point(123, 161);
-            this.txtFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFilter.Margin = new System.Windows.Forms.Padding(4);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(521, 25);
-            this.txtFilter.TabIndex = 5;
+            this.txtFilter.TabIndex = 3;
             // 
             // btnSourcePath
             // 
             this.btnSourcePath.Location = new System.Drawing.Point(601, 66);
-            this.btnSourcePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSourcePath.Margin = new System.Windows.Forms.Padding(4);
             this.btnSourcePath.Name = "btnSourcePath";
             this.btnSourcePath.Size = new System.Drawing.Size(44, 29);
             this.btnSourcePath.TabIndex = 6;
@@ -112,7 +112,7 @@
             // btnTargetPath
             // 
             this.btnTargetPath.Location = new System.Drawing.Point(601, 111);
-            this.btnTargetPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTargetPath.Margin = new System.Windows.Forms.Padding(4);
             this.btnTargetPath.Name = "btnTargetPath";
             this.btnTargetPath.Size = new System.Drawing.Size(44, 29);
             this.btnTargetPath.TabIndex = 7;
@@ -123,10 +123,10 @@
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(284, 264);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(92, 40);
-            this.btnOk.TabIndex = 8;
+            this.btnOk.TabIndex = 5;
             this.btnOk.Text = "确  定";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -159,7 +159,7 @@
             this.chbIncludSubDires.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chbIncludSubDires.Name = "chbIncludSubDires";
             this.chbIncludSubDires.Size = new System.Drawing.Size(18, 17);
-            this.chbIncludSubDires.TabIndex = 11;
+            this.chbIncludSubDires.TabIndex = 4;
             this.chbIncludSubDires.UseVisualStyleBackColor = true;
             // 
             // label6
@@ -175,10 +175,10 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(123, 26);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(521, 25);
-            this.txtName.TabIndex = 13;
+            this.txtName.TabIndex = 0;
             // 
             // OptionsForm
             // 
@@ -200,7 +200,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "OptionsForm";

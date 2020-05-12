@@ -25,6 +25,7 @@ namespace FileCopy
         {
             this._options = options;
             InitializeComponent();
+            InitializeOptions(options);
         }
 
         private void btnSourcePath_Click(object sender, EventArgs e)
@@ -69,6 +70,17 @@ namespace FileCopy
             }
             ConfigManager.Save();
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void InitializeOptions(Options options)
+        {
+            if (options == null)
+                return;
+            this.txtName.Text = options.Name;
+            this.txtSourcePath.Text = options.SourcePath;
+            this.txtTargetPath.Text = options.TargetPath;
+            this.txtFilter.Text = options.Filter;
+            this.chbIncludSubDires.Checked = options.IncludeSubDires;
         }
     }
 }

@@ -16,14 +16,20 @@ namespace FileCopy.Handle
                 Directory.CreateDirectory(destPath);
             var fileInfo = new FileInfo(sourceFileName);
             var destFileName = Path.Combine(destPath, fileInfo.Name);
-            try
+            var e = 0;
+            do
             {
-                File.Copy(sourceFileName, destFileName, true);
-            }
-            catch
-            {
-                //忽略异常
-            }
+                try
+                {
+                    File.Copy(sourceFileName, destFileName, true);
+                    e--;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    e++;
+                }
+            } while (e > 0);
         }
     }
 }
