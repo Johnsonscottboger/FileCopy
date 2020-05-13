@@ -56,7 +56,8 @@ namespace FileCopy
                     SourcePath = this.txtSourcePath.Text,
                     TargetPath = this.txtTargetPath.Text,
                     Filter = string.IsNullOrWhiteSpace(this.txtFilter.Text) ? null : this.txtFilter.Text,
-                    IncludeSubDires = this.chbIncludSubDires.Checked
+                    IncludeSubDires = this.chbIncludSubDires.Checked,
+                    Enable = this.chbEnable.Checked
                 };
                 ConfigManager.Options.Add(options);
             }
@@ -67,6 +68,7 @@ namespace FileCopy
                 this._options.TargetPath = this.txtTargetPath.Text;
                 this._options.Filter = string.IsNullOrWhiteSpace(this.txtFilter.Text) ? null : this.txtFilter.Text;
                 this._options.IncludeSubDires = this.chbIncludSubDires.Checked;
+                this._options.Enable = this.chbEnable.Checked;
             }
             ConfigManager.Save();
             this.DialogResult = DialogResult.OK;
@@ -81,6 +83,7 @@ namespace FileCopy
             this.txtTargetPath.Text = options.TargetPath;
             this.txtFilter.Text = options.Filter;
             this.chbIncludSubDires.Checked = options.IncludeSubDires;
+            this.chbEnable.Checked = options.Enable;
         }
     }
 }
