@@ -42,7 +42,8 @@
             this.SourcePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TargetPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.过滤 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IncludeSubDires = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IncludeSubDires = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.OptionsEnable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +64,8 @@
             this.SourcePath,
             this.TargetPath,
             this.过滤,
-            this.IncludeSubDires});
+            this.IncludeSubDires,
+            this.OptionsEnable});
             this.dataGridView1.Location = new System.Drawing.Point(16, 61);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
@@ -180,6 +182,16 @@
             this.IncludeSubDires.MinimumWidth = 6;
             this.IncludeSubDires.Name = "IncludeSubDires";
             this.IncludeSubDires.ReadOnly = true;
+            this.IncludeSubDires.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IncludeSubDires.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // OptionsEnable
+            // 
+            this.OptionsEnable.DataPropertyName = "Enable";
+            this.OptionsEnable.HeaderText = "启    用";
+            this.OptionsEnable.MinimumWidth = 6;
+            this.OptionsEnable.Name = "OptionsEnable";
+            this.OptionsEnable.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -215,7 +227,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SourcePath;
         private System.Windows.Forms.DataGridViewTextBoxColumn TargetPath;
         private System.Windows.Forms.DataGridViewTextBoxColumn 过滤;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IncludeSubDires;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IncludeSubDires;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn OptionsEnable;
     }
 }
 

@@ -23,7 +23,7 @@ namespace FileCopy.Handle
 
         private HandleFactory()
         {
-            this._task = new Task(Handle);
+            this._task = new Task(Consumer);
         }
 
         public static HandleFactory Instance { get { return _instance.Value; } }
@@ -36,34 +36,28 @@ namespace FileCopy.Handle
             var list = new List<FileSystemWatcher>();
             foreach (var option in options)
             {
+                if (!option.Enable)
+                    continue;
                 if (!Directory.Exists(option.SourcePath))
                     continue;
                 var watcher = new FileSystemWatcher()
                 {
                     Path = option.SourcePath,
-                    IncludeSubdirectories = option.IncludeSubDires
+                    IncludeSubdirectories = option.IncludeSubDires,
+                    InternalBufferSize = 65536, //64KB
+                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size
                 };
                 FileSystemEventHandler eventHandler = (sender, e) =>
                 {
-                    if (!File.Exists(e.FullPath))
-                        return;
-                    var fileInfo = new FileInfo(e.FullPath);
-                    if (fileInfo.Attributes.HasFlag(FileAttributes.Hidden))
-                        return;
-                    if (!string.IsNullOrWhiteSpace(option.Filter))
-                    {
-                        var fileName = fileInfo.Name;
-                        var regex = new Regex(option.Filter, RegexOptions.Compiled | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase);
-                        if (!regex.IsMatch(fileName))
-                            return;
-                    }
-                    var targetPath = option.TargetPath;
-                    var subDir = fileInfo.Directory.FullName.Replace(option.SourcePath, "");
-                    var destPath = string.IsNullOrEmpty(subDir) ? targetPath : targetPath + subDir;
-                    this._queue.Add(new FilePathPair(e.FullPath, destPath));
+                    Producer(option, e.FullPath);
+                };
+                RenamedEventHandler renamedEventHandler = (sender, e) =>
+                {
+                    Producer(option, e.FullPath);
                 };
                 watcher.Changed += eventHandler;
                 watcher.Created += eventHandler;
+                watcher.Renamed += renamedEventHandler;
                 list.Add(watcher);
             }
             this._fileSystemWatchers = list;
@@ -98,7 +92,27 @@ namespace FileCopy.Handle
             return new ChangeHandleImpl();
         }
 
-        private void Handle()
+        private void Producer(Options option, string fullPath)
+        {
+            if (!File.Exists(fullPath))
+                return;
+            var fileInfo = new FileInfo(fullPath);
+            if (fileInfo.Attributes.HasFlag(FileAttributes.Hidden))
+                return;
+            if (!string.IsNullOrWhiteSpace(option.Filter))
+            {
+                var fileName = fileInfo.Name;
+                var regex = new Regex(option.Filter, RegexOptions.Compiled | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase);
+                if (!regex.IsMatch(fileName))
+                    return;
+            }
+            var targetPath = option.TargetPath;
+            var subDir = fileInfo.Directory.FullName.Replace(option.SourcePath, "");
+            var destPath = string.IsNullOrEmpty(subDir) ? targetPath : targetPath + subDir;
+            this._queue.Add(new FilePathPair(fullPath, destPath));
+        }
+
+        private void Consumer()
         {
             foreach (var filePathPair in this._queue.GetConsumingEnumerable())
             {

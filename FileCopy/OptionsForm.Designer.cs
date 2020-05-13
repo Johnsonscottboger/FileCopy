@@ -42,6 +42,8 @@
             this.chbIncludSubDires = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.chbEnable = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -79,7 +81,7 @@
             this.txtSourcePath.Location = new System.Drawing.Point(123, 68);
             this.txtSourcePath.Margin = new System.Windows.Forms.Padding(4);
             this.txtSourcePath.Name = "txtSourcePath";
-            this.txtSourcePath.Size = new System.Drawing.Size(521, 25);
+            this.txtSourcePath.Size = new System.Drawing.Size(479, 25);
             this.txtSourcePath.TabIndex = 1;
             // 
             // txtTargetPath
@@ -87,7 +89,7 @@
             this.txtTargetPath.Location = new System.Drawing.Point(123, 112);
             this.txtTargetPath.Margin = new System.Windows.Forms.Padding(4);
             this.txtTargetPath.Name = "txtTargetPath";
-            this.txtTargetPath.Size = new System.Drawing.Size(521, 25);
+            this.txtTargetPath.Size = new System.Drawing.Size(479, 25);
             this.txtTargetPath.TabIndex = 2;
             // 
             // txtFilter
@@ -155,7 +157,7 @@
             // chbIncludSubDires
             // 
             this.chbIncludSubDires.AutoSize = true;
-            this.chbIncludSubDires.Location = new System.Drawing.Point(132, 214);
+            this.chbIncludSubDires.Location = new System.Drawing.Point(132, 215);
             this.chbIncludSubDires.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chbIncludSubDires.Name = "chbIncludSubDires";
             this.chbIncludSubDires.Size = new System.Drawing.Size(18, 17);
@@ -180,11 +182,35 @@
             this.txtName.Size = new System.Drawing.Size(521, 25);
             this.txtName.TabIndex = 0;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(525, 216);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 15);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "启    用:";
+            // 
+            // chbEnable
+            // 
+            this.chbEnable.AutoSize = true;
+            this.chbEnable.Checked = true;
+            this.chbEnable.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbEnable.Location = new System.Drawing.Point(626, 215);
+            this.chbEnable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chbEnable.Name = "chbEnable";
+            this.chbEnable.Size = new System.Drawing.Size(18, 17);
+            this.chbEnable.TabIndex = 14;
+            this.chbEnable.UseVisualStyleBackColor = true;
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 331);
+            this.Controls.Add(this.chbEnable);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.chbIncludSubDires);
@@ -228,5 +254,7 @@
         private System.Windows.Forms.CheckBox chbIncludSubDires;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox chbEnable;
     }
 }

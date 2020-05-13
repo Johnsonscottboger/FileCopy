@@ -17,5 +17,7 @@ namespace FileCopy.Model
         public string Filter { get; set; }
 
         public bool IncludeSubDires { get; set; }
+
+        public bool Enable { get; set; } = true;
     }
 }
