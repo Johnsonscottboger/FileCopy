@@ -36,6 +36,8 @@ namespace FileCopy.Handle
             var list = new List<FileSystemWatcher>();
             foreach (var option in options)
             {
+                if (!option.Enable)
+                    continue;
                 if (!Directory.Exists(option.SourcePath))
                     continue;
                 var watcher = new FileSystemWatcher()
