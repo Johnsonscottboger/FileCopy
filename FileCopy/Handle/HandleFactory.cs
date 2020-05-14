@@ -45,7 +45,7 @@ namespace FileCopy.Handle
                     Path = option.SourcePath,
                     IncludeSubdirectories = option.IncludeSubDires,
                     InternalBufferSize = 65536, //64KB
-                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size
+                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName
                 };
                 FileSystemEventHandler eventHandler = (sender, e) =>
                 {
@@ -94,6 +94,7 @@ namespace FileCopy.Handle
 
         private void Producer(Options option, string fullPath)
         {
+            Debug.WriteLine($"监听到的文件:{fullPath}");
             if (!File.Exists(fullPath))
                 return;
             var fileInfo = new FileInfo(fullPath);
