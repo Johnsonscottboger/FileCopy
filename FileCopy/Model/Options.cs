@@ -19,5 +19,17 @@ namespace FileCopy.Model
         public bool IncludeSubDires { get; set; }
 
         public bool Enable { get; set; } = true;
+
+        public override string ToString()
+        {
+            var builder = new StringBuilder("{");
+            var props = this.GetType().GetProperties();
+            foreach(var prop in props)
+            {
+                builder.AppendFormat("{0}:{1}, ", prop.Name, prop.GetValue(this));
+            }
+            builder.Append("}");
+            return builder.ToString();
+        }
     }
 }

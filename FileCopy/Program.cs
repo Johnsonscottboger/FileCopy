@@ -1,10 +1,14 @@
 ﻿using IWshRuntimeLibrary;
+using log4net;
+using log4net.Repository.Hierarchy;
+using Microsoft.VisualBasic.Logging;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,18 +16,22 @@ namespace FileCopy
 {
     static class Program
     {
+        private static readonly ILog log = LogManager.GetLogger("loginfo");
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main(string[] args)
         {
+            log.Info("Application runing...");
             AutoLaunch();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var mainForm = new MainForm();
             var wrapper = new SingleInstanceApplicationWrapper(mainForm);
             wrapper.Run(args);
+            log.Info("Application exit");
         }
 
         private static void AutoLaunch()
