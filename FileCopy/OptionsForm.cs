@@ -85,5 +85,11 @@ namespace FileCopy
             this.chbIncludSubDires.Checked = options.IncludeSubDires;
             this.chbEnable.Checked = options.Enable;
         }
+
+        private void btnTestRegex_Click(object sender, EventArgs e)
+        {
+            var form = new RegexTest(this.txtFilter.Text);
+            form.ShowDialog(this);
+        }
     }
 }

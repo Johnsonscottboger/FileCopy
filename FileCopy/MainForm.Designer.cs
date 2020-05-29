@@ -66,23 +66,21 @@
             this.过滤,
             this.IncludeSubDires,
             this.OptionsEnable});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 61);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1147, 375);
+            this.dataGridView1.Size = new System.Drawing.Size(905, 300);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("DengXian", 10F);
-            this.btnAdd.Location = new System.Drawing.Point(16, 15);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Location = new System.Drawing.Point(12, 12);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 34);
+            this.btnAdd.Size = new System.Drawing.Size(75, 27);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "新  增";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -91,10 +89,9 @@
             // btnDel
             // 
             this.btnDel.Font = new System.Drawing.Font("DengXian", 10F);
-            this.btnDel.Location = new System.Drawing.Point(124, 15);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDel.Location = new System.Drawing.Point(93, 12);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(100, 34);
+            this.btnDel.Size = new System.Drawing.Size(75, 27);
             this.btnDel.TabIndex = 3;
             this.btnDel.Text = "删  除";
             this.btnDel.UseVisualStyleBackColor = true;
@@ -103,10 +100,9 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("DengXian", 10F);
-            this.btnSave.Location = new System.Drawing.Point(232, 15);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Location = new System.Drawing.Point(174, 12);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 34);
+            this.btnSave.Size = new System.Drawing.Size(75, 27);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "保  存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -127,25 +123,27 @@
             this.打开ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(111, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
             // 
             // 打开ToolStripMenuItem
             // 
             this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.打开ToolStripMenuItem.Text = "打开";
             this.打开ToolStripMenuItem.Click += new System.EventHandler(this.打开ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
             // OptionsName
             // 
+            this.OptionsName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.OptionsName.DataPropertyName = "Name";
+            this.OptionsName.Frozen = true;
             this.OptionsName.HeaderText = "名    称";
             this.OptionsName.MinimumWidth = 6;
             this.OptionsName.Name = "OptionsName";
@@ -153,30 +151,40 @@
             // 
             // SourcePath
             // 
+            this.SourcePath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.SourcePath.DataPropertyName = "SourcePath";
+            this.SourcePath.Frozen = true;
             this.SourcePath.HeaderText = "监听路径";
             this.SourcePath.MinimumWidth = 6;
             this.SourcePath.Name = "SourcePath";
             this.SourcePath.ReadOnly = true;
+            this.SourcePath.Width = 200;
             // 
             // TargetPath
             // 
+            this.TargetPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.TargetPath.DataPropertyName = "TargetPath";
+            this.TargetPath.Frozen = true;
             this.TargetPath.HeaderText = "目标路径";
             this.TargetPath.MinimumWidth = 6;
             this.TargetPath.Name = "TargetPath";
             this.TargetPath.ReadOnly = true;
+            this.TargetPath.Width = 200;
             // 
             // 过滤
             // 
+            this.过滤.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.过滤.DataPropertyName = "Filter";
+            this.过滤.Frozen = true;
             this.过滤.HeaderText = "过滤条件";
             this.过滤.MinimumWidth = 6;
             this.过滤.Name = "过滤";
             this.过滤.ReadOnly = true;
+            this.过滤.Width = 200;
             // 
             // IncludeSubDires
             // 
+            this.IncludeSubDires.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.IncludeSubDires.DataPropertyName = "IncludeSubDires";
             this.IncludeSubDires.HeaderText = "包含子文件夹";
             this.IncludeSubDires.MinimumWidth = 6;
@@ -188,6 +196,7 @@
             // OptionsEnable
             // 
             this.OptionsEnable.DataPropertyName = "Enable";
+            this.OptionsEnable.FillWeight = 10F;
             this.OptionsEnable.HeaderText = "启    用";
             this.OptionsEnable.MinimumWidth = 6;
             this.OptionsEnable.Name = "OptionsEnable";
@@ -195,15 +204,14 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 451);
+            this.ClientSize = new System.Drawing.Size(929, 361);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "文件复制工具";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
