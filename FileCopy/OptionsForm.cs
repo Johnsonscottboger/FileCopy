@@ -9,21 +9,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static FileCopy.MainForm;
 
 namespace FileCopy
 {
     public partial class OptionsForm : Form
     {
         private readonly Options _options;
+        private readonly Operation _operation;
 
-        public OptionsForm():this(null)
+        public OptionsForm() : this(null, Operation.Add)
         {
-            
+
         }
 
-        public OptionsForm(Options options)
+        public OptionsForm(Options options, Operation operation)
         {
             this._options = options;
+            this._operation = operation;
             InitializeComponent();
             InitializeOptions(options);
         }
@@ -31,7 +34,7 @@ namespace FileCopy
         private void btnSourcePath_Click(object sender, EventArgs e)
         {
             var folderSelect = new FolderBrowserDialog();
-            if(folderSelect.ShowDialog() == DialogResult.OK)
+            if (folderSelect.ShowDialog() == DialogResult.OK)
             {
                 this.txtSourcePath.Text = folderSelect.SelectedPath;
             }
@@ -48,7 +51,7 @@ namespace FileCopy
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (this._options == null)
+            if (this._options == null || this._operation == Operation.Add)
             {
                 var options = new Options()
                 {
@@ -59,7 +62,16 @@ namespace FileCopy
                     IncludeSubDires = this.chbIncludSubDires.Checked,
                     Enable = this.chbEnable.Checked
                 };
-                ConfigManager.Options.Add(options);
+
+                if (ConfigManager.Options.Contains(options, new OptionsComparer()))
+                {
+                    MessageBox.Show(this, "已存在相同路径和过滤条件的配置！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    ConfigManager.Options.Add(options);
+                }
             }
             else
             {

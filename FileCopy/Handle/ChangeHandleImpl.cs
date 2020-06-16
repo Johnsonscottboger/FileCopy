@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FileCopy.Handle
 {
@@ -26,6 +27,10 @@ namespace FileCopy.Handle
                 }
                 catch (Exception ex)
                 {
+                    if(ex is IOException && ex.Message.Contains(destFileName))
+                    {
+                        break;
+                    }
                     Debug.WriteLine(ex);
                     e++;
                 }

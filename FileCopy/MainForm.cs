@@ -37,17 +37,39 @@ namespace FileCopy
             }
         }
 
-        private void btnDel_Click(object sender, EventArgs e)
+
+        private void btnCopy_Click(object sender, EventArgs e)
         {
             var rows = this.dataGridView1.SelectedRows.Count;
             if (rows <= 0)
                 return;
             var row = this.dataGridView1.SelectedRows[0];
-            this.dataGridView1.Rows.Remove(row);
             var item = row.DataBoundItem as Options;
-            if (item != null)
+            if(item != null)
             {
-                ConfigManager.Options.Remove(item);
+                var form = new OptionsForm(item, Operation.Add);
+                if(form.ShowDialog(this) == DialogResult.OK)
+                {
+                    InitializeDataSource();
+                }
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            var rows = this.dataGridView1.SelectedRows.Count;
+            if (rows <= 0)
+                return;
+            if (MessageBox.Show(this, "确定删除当前记录？", "删除", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                var row = this.dataGridView1.SelectedRows[0];
+                this.dataGridView1.Rows.Remove(row);
+                var item = row.DataBoundItem as Options;
+                if (item != null)
+                {
+                    ConfigManager.Options.Remove(item);
+                    ConfigManager.Save();
+                }
             }
         }
 
@@ -64,7 +86,7 @@ namespace FileCopy
             var item = row.DataBoundItem as Options;
             if(item != null)
             {
-                var form = new OptionsForm(item);
+                var form = new OptionsForm(item, Operation.Edit);
                 if(form.ShowDialog(this) == DialogResult.OK)
                 {
                     InitializeDataSource();
@@ -107,5 +129,10 @@ namespace FileCopy
             factory.Start();
         }
 
+        public enum Operation
+        {
+            Add,
+            Edit
+        }
     }
 }
