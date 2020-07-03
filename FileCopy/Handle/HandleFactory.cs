@@ -1,4 +1,5 @@
-﻿using FileCopy.Model;
+﻿using FileCopy.Handle.Impl;
+using FileCopy.Model;
 using log4net;
 using System;
 using System.Collections.Concurrent;
@@ -104,6 +105,15 @@ namespace FileCopy.Handle
             return new ChangeHandleImpl();
         }
 
+        public IEnumerable<IChangeFilter> GetChangeFilters()
+        {
+            return new IChangeFilter[]
+            {
+                new RegexChangeFilterImpl(),
+                new ContentCompareFilterImpl(),
+            };
+        }
+
         private void Producer(Options option, string fullPath)
         {
             log.Info($"生产者:{option.ToString()}, FullPath:{fullPath}");
@@ -115,13 +125,13 @@ namespace FileCopy.Handle
                 var fileInfo = new FileInfo(fullPath);
                 if (fileInfo.Attributes.HasFlag(FileAttributes.Hidden))
                     return;
-                if (!string.IsNullOrWhiteSpace(option.Filter))
+                var filters = GetChangeFilters();
+                foreach(var filter in filters)
                 {
-                    var fileName = fileInfo.Name;
-                    var regex = new Regex(option.Filter, RegexOptions.Compiled | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase);
-                    if (!regex.IsMatch(fileName))
+                    if (!filter.CanContinue(option, fullPath))
                         return;
                 }
+
                 var targetPath = option.TargetPath;
                 var subDir = fileInfo.Directory.FullName.Replace(option.SourcePath, "");
                 var destPath = string.IsNullOrEmpty(subDir) ? targetPath : targetPath + subDir;

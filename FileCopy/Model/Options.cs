@@ -20,6 +20,10 @@ namespace FileCopy.Model
 
         public bool Enable { get; set; } = true;
 
+        public bool EnableContentCompare { get; set; }
+
+        public bool EnableDetectionAutoFolder { get; set; }
+
         public override string ToString()
         {
             var builder = new StringBuilder("{");

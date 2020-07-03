@@ -83,9 +83,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\ConfigManager.cs" />
-    <Compile Include="Handle\ChangeHandleImpl.cs" />
+    <Compile Include="Handle\Impl\ChangeHandleImpl.cs" />
     <Compile Include="Handle\HandleFactory.cs" />
+    <Compile Include="Handle\IChangeFilter.cs" />
     <Compile Include="Handle\IChangeHandle.cs" />
+    <Compile Include="Handle\Impl\ContentCompareFilterImpl.cs" />
+    <Compile Include="Handle\Impl\RegexChangeFilterImpl.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

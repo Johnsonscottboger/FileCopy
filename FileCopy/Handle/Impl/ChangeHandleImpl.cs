@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FileCopy.Handle
+namespace FileCopy.Handle.Impl
 {
     public class ChangeHandleImpl : IChangeHandle
     {
@@ -23,7 +23,7 @@ namespace FileCopy.Handle
                 try
                 {
                     File.Copy(sourceFileName, destFileName, true);
-                    e--;
+                    e = 0;
                 }
                 catch (Exception ex)
                 {
@@ -34,7 +34,7 @@ namespace FileCopy.Handle
                     Debug.WriteLine(ex);
                     e++;
                 }
-            } while (e > 0);
+            } while (e > 0 && e < 10);
         }
     }
 }

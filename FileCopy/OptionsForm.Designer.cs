@@ -45,6 +45,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.chbEnable = new System.Windows.Forms.CheckBox();
             this.btnTestRegex = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.chbContentCompare = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -120,7 +125,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(213, 211);
+            this.btnOk.Location = new System.Drawing.Point(218, 257);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(69, 32);
             this.btnOk.TabIndex = 5;
@@ -151,7 +156,7 @@
             // 
             this.chbIncludSubDires.AutoSize = true;
             this.chbIncludSubDires.Location = new System.Drawing.Point(99, 172);
-            this.chbIncludSubDires.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chbIncludSubDires.Margin = new System.Windows.Forms.Padding(2);
             this.chbIncludSubDires.Name = "chbIncludSubDires";
             this.chbIncludSubDires.Size = new System.Drawing.Size(15, 14);
             this.chbIncludSubDires.TabIndex = 4;
@@ -188,7 +193,7 @@
             this.chbEnable.Checked = true;
             this.chbEnable.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chbEnable.Location = new System.Drawing.Point(470, 172);
-            this.chbEnable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chbEnable.Margin = new System.Windows.Forms.Padding(2);
             this.chbEnable.Name = "chbEnable";
             this.chbEnable.Size = new System.Drawing.Size(15, 14);
             this.chbEnable.TabIndex = 14;
@@ -204,11 +209,64 @@
             this.btnTestRegex.UseVisualStyleBackColor = true;
             this.btnTestRegex.Click += new System.EventHandler(this.btnTestRegex_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(27, 202);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 12);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "启用内容比较:";
+            // 
+            // chbContentCompare
+            // 
+            this.chbContentCompare.AutoSize = true;
+            this.chbContentCompare.Location = new System.Drawing.Point(115, 202);
+            this.chbContentCompare.Margin = new System.Windows.Forms.Padding(2);
+            this.chbContentCompare.Name = "chbContentCompare";
+            this.chbContentCompare.Size = new System.Drawing.Size(15, 14);
+            this.chbContentCompare.TabIndex = 17;
+            this.chbContentCompare.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("KaiTi", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Location = new System.Drawing.Point(27, 222);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(389, 12);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "当监听文件发生变化时，首先与目标文件对比，当内容有变化时才复制。";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(469, 202);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 20;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(316, 202);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(137, 12);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "自动识别 _Auto 文件夹:";
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 265);
+            this.ClientSize = new System.Drawing.Size(514, 310);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.chbContentCompare);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnTestRegex);
             this.Controls.Add(this.chbEnable);
             this.Controls.Add(this.label7);
@@ -257,5 +315,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox chbEnable;
         private System.Windows.Forms.Button btnTestRegex;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox chbContentCompare;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label10;
     }
 }
